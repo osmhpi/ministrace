@@ -1,10 +1,12 @@
 all: ministrace
 
-ministrace: syscall_nr.h main.o
+.PHONY: run
+
+ministrace: syscall_nr.h main.c
 	$(CC) -o $@ $^
 
 %.o: %.c
 	$(CC) -c $^
 
 syscall_nr.h:
-	python get_syscalls.py /usr/include/asm/unistd_64.h > syscall_nr.h
+	./get_syscalls.sh
