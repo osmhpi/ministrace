@@ -1,0 +1,3 @@
+main.o
+syscall_nr.h
+ministrace
